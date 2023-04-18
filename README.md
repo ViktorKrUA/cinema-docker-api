@@ -4,7 +4,6 @@
 API service for cinema management written on DRF
 
 
-
 ## Installing using GitHub
 
 Install PostgreSQL and create db
@@ -12,17 +11,36 @@ Install PostgreSQL and create db
 ```bash
 git clone https://github.com/ViktorKrUA/cinema-docker-api.git
 cd cinema-docker-api
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-set DB_HOST=<your db hostname>
-set DB_NAME=<your db name>
-set DB_USER=<your db username>
-set DB PASSWORD=<your db user password>
-set SECRET_KEY=<your Django secret key>
-python manage. py migrate
-python manage. py runserver
 ```
+
+Inside the directory you'll see .env.sample
+It's an example which data must contain .env file which you need to create and fill
+
+```bash
+set POSTGRES_HOST=POSTGRES_HOST
+set POSTGRES_DB=POSTGRES_DB
+set POSTGRES_USER=POSTGRES_USER
+set POSTGRES_PASSWORD=POSTGRES_PASSWORD
+set SECRET_KEY=SECRET_KEY
+```
+
+## Run with docker
+
+Docker should be installed
+
+```bash
+docker-compose build
+docker-compose up
+```
+
+## Getting access
+
+- create user via api/user/register
+- get access token via api/user/token
+
     
 ## Features
 
@@ -34,19 +52,3 @@ python manage. py runserver
 - Creating cinema halls
 - Adding movie sessions
 - Filtering movies and movie sessions
-
-
-## Run with docker
-
-Docker should be installed
-
-```bash
-docker-compose build
-docker-compose up
-```
-
-
-## Getting access
-
-- create user via api/user/register
-- get access token via api/user/token
